@@ -40,6 +40,23 @@ module.exports={
 
             
         })
+    },
+    updatePassword:(pass)=>{
+       return new Promise(async(resolve,reject)=>{
+          let user=await db.get().collection(collection.USER).findOne({email:pass.email})
+          if(user){
+           pass.newPassword=await bcryp.hash(pass.newPassword,10)
+          await db.get().collection(collection.USER).updateOne({email:pass.email},{
+            $set:{
+                   password:pass.newPassword
+            }
+           }).then((resp)=>{
+            
+                      resolve(resp)
+                   })
+          }
+       })
+
     }
 
 }

@@ -20,19 +20,19 @@
                     {{#if logerr}}
                         <h3>{{logerr}}</h3>
                     {{/if}}
-                    <form action="/reset-Password/otp-verify" method="post">
+                    <form action="/reset-Password/otp-check" method="post">
                         
 
                         <!-- mobile input -->
                         <div class="form-outline mb-4">
-                            <input type="tel" id="form2Example2" class="form-control" name="number"/>
-                            <label class="form-label" for="form2Example2">Enter Rejisterd Mobile Number</label>
+                            <input type="text" id="form2Example2" class="form-control" name="otp"/>
+                            <label class="form-label" for="form2Example2">Enter otp</label>
                         </div>
 
                        
 
                         <!-- Submit button -->
-                        <button type="submit" class="btn btn-primary btn-block mb-4">submit</button>
+                        <button type="submit" class="btn btn-primary btn-block mb-4">verify</button>
                          <!-- 2 column grid layout for inline styling -->
                         
 

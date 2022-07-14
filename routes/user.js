@@ -105,8 +105,6 @@ router.post('/create-account',(req,res)=>{
   } 
 })
 
-router.get('/otp-verify',(req,res)=>{
-  console.log('hiiiiiiiiiiiiiiiiiiiiiiiii');
-  res.render('reset-Password/otp-verify')
-})
+
+
 module.exports = router;
