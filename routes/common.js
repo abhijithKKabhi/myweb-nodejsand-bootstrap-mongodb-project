@@ -68,11 +68,12 @@ res.redirect('/reset-Password/otp-check')
 })
 })
 router.post('/reset-Password/otp-check',(req,res)=>{
-const {otp,userNum}=req.body
+  console.log(req.body);
+//const {userNum,otp}=req.body
 twilio.verify.services(servuceId)
 .verificationChecks.create({
-to:`+919544505986`,
-code:otp
+to:`+91${req.body.userNum}`,
+code:req.body.otp
 }).then((resp)=>{
 if(resp.valid){
 console.log('welcome');
