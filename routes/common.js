@@ -9,9 +9,11 @@ router.get('/', function(req, res, next) {
 router.post('/',(req,res)=>{
   dbExport.userLoginData(req.body).then((responsee)=>{
     //console.log(req.body);
-    req.session.user=responsee.user
-    req.session.loggedInn=true
+    
     if(responsee.status){
+      req.session.user=responsee.user
+      req.session.loggedInn=true
+      console.log(req.session.user);
       
       res.redirect('user/user-home')
   

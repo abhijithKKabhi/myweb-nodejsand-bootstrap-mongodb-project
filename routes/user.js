@@ -17,7 +17,7 @@ let sessionKeep=((req,res,next)=>{
   if(req.session.user){
     next()
   }else{
-    req.redirect('/user-home')
+    res.redirect('/user-home')
   }
 })
   

@@ -32,7 +32,7 @@ app.use(session({
   saveUninitialized: false,
   store: MongoStore.create({
     mongoUrl: 'mongodb://0.0.0.0:27017/',
-    touchAfter: 24 * 3600
+    touchAfter: 600000
   })
 }));
 
