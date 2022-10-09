@@ -1,0 +1,80 @@
+<section>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-4 col-3">
+                <img src="./my.JPG" alt="not found image" class="p-5" id="myimg" style="border-radius: 150px;">
+                <h3 class="question">WhoIAm</h3>
+                <h2 class="answer">Abhijith.kk</h2>
+            </div>
+            <div class="col-md-8 col-9">
+                <h5 class="discription">Lorem ipsum dolor sit amet consectetur adip
+                    isicing elit. Laboriosam voluptatibus vel nobis. Libero quod quo itaque! Sequi possimus laudantium
+                    doloribus, dicta quisquam quasi odio in nobis minus nostrum, ad facilis culpa consequatur
+                    nisi modi, sit pariatur. Iure provident itaque,
+                    libero error repellat saepe autem nulla dolorum,
+                    consectetur nobis eveniet dicta?</h5>
+
+                <button type="button" class="btn btn-outline-primary" onclick="openPopUp()" id="myBtn">Read
+                    More</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-outline-primary" onclick="condact()">Condact Me</button>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section class=>
+    <div class="container">
+        <div class="popup" id="pp">
+            <!-- <span class="close">&times;</span> -->
+            <h3 style="color: white;" class="wclose">i am a good boy</h3>
+
+
+        </div>
+
+        <div class="condact" id="cc">
+            <span class="close">&times;</span>
+            <h3 style="color: white;" class="w">
+
+
+            </h3>
+            <a style="color: #ffffff;" href="https://www.facebook.com/profile.php?id=100010198239157" role="button"><i
+                    class="fa fa-facebook-f fa-lg"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a style="color: #ffffff;" href="https://www.instagram.com/abhijith_k.k" role="button"><i
+                    class="fa fa-instagram fa-lg"></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <a style="color: #ffffff;" href="https://wa.me/+919544505986" role="button"><i
+                    class="fa fa-whatsapp fa-lg"></i></a>
+
+
+
+        </div>
+
+    </div>
+    <script>
+        let popup = document.getElementById("pp");
+        function openPopUp() {
+            popup.classList.add("open-popup");
+
+        }
+        var clos = document.getElementsByClassName("close")[0];
+        clos.onclick = function () {
+            cond.style.display = "none";
+        }
+        window.onclick = function (event) {
+            if (event.target == popup) {
+                popup.style.display = "none";
+            }
+        }
+
+
+
+        let cond = document.getElementById("cc");
+        function condact() {
+            cond.classList.add("open-condact");
+        }
+
+    </script>
+
+</section>

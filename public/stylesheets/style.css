@@ -1,0 +1,196 @@
+.question {
+  padding-left: 250px;
+  padding-top: 10px;
+  color: rgb(211, 200, 200);
+  font-weight: 600;
+}
+
+.answer {
+
+  padding-left: 295px;
+  color: chartreuse;
+  padding-top: 15px;
+  font-family: 'Franklin Gothic Medium';
+}
+
+.discription {
+
+  padding-top: 250px;
+  color: white;
+  line-height: 25px;
+  font-family: 'Segoe UI';
+}
+
+body { 
+  /* background: #793434; */
+  background-image: url(./background.jpg);
+
+  height: 100vh;
+
+  background-size: cover;
+  background-repeat: no-repeat;
+
+
+
+}
+
+
+
+
+
+
+
+@media(min-width:850px) and (max-width:3000px) {
+
+  #myimg {
+    height: 356px;
+    width: 687px;
+
+
+
+
+  }
+
+  .discription {
+
+    padding-top: 485px;
+    padding-right: 175px
+  }
+}
+
+
+
+
+
+@media(min-width:500px) and (max-width:850px) {
+
+  #myimg {
+    height: 356px;
+    width: 687px;
+
+  }
+
+  .discription {
+
+    padding-top: 485px;
+    padding-right: 175px
+  }
+}
+
+@media(max-width:500px) {
+
+  .question {
+    padding-left: 105px;
+    padding-top: 0px;
+
+  }
+
+  .answer {
+
+    padding-left: 130px;
+    color: chartreuse;
+    padding-top: 10px;
+  }
+
+  .discription {
+
+    padding-top: 300px;
+    padding-left: 38px;
+    padding-right: 20px
+  }
+
+  #myimg {
+    height: 215px;
+    width: 320px;
+
+  }
+}
+
+
+
+.wclose {
+
+
+  font-weight: bolder;
+
+  text-align: center;
+  justify-content: center;
+  padding-top: 100px;
+
+
+}
+
+.popup {
+  width: 400px;
+  height: 250px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 7px;
+  position: absolute;
+  top: 33%;
+  left: 15%;
+  text-align: center;
+  justify-content: center;
+  visibility: hidden;
+
+
+
+
+}
+
+.open-popup {
+  visibility: visible;
+  transform: scale(1);
+
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+
+.w {
+
+
+  font-weight: bolder;
+
+  text-align: center;
+  justify-content: center;
+  padding-top: 100px;
+
+
+}
+
+.condact {
+  width: 400px;
+  height: 250px;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 7px;
+  position: absolute;
+  top: 33%;
+  left: 15%;
+  text-align: center;
+  justify-content: center;
+  visibility: hidden;
+
+
+
+
+}
+
+.open-condact {
+  visibility: visible;
+  transform: scale(1);
+
+}
