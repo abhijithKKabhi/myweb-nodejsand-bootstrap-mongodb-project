@@ -37,7 +37,7 @@ router.get('/user-home',loginChecker,sessionKeep, (req, res) => {
 });
 router.get('/show-apps',loginChecker,sessionKeep, (req, res) => {
   let datas=req.session.user
-  res.render('user/show-apps', { user: true,datas, style: 'all.css' })
+  res.render('user/show-apps', { user: true,datas, style: 'app.css' })
 });
 router.get('/show-clicks',loginChecker,sessionKeep, (req, res) => {
   let datas=req.session.user
@@ -67,12 +67,19 @@ router.get('/create-account',(req,res)=>{
   
 });
 router.post('/create-account',(req,res)=>{
-  dbExport.getAllData(req.body).then((response)=>{
+  console.log('bodyyy',req.body);
+  if(req.body==null){
+    res.redirect('user/create-account')
+  }else{
+    dbExport.getAllData(req.body).then((response)=>{
     
-    res.redirect('/')
+      res.redirect('/')
+  
+    })
+  
 
-  })
-
+  }
+  
   //console.log(req.body);
   
 })
