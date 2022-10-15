@@ -89,7 +89,7 @@ router.post('/add-items', (req, res) => {
 router.get('/view-items', (req, res) => {
   dbExport.findAllProducts().then((products)=>{
     //console.log(products);
-    res.render('admin/view-items', { products,admin: true, style: 'all.css' })
+    res.render('admin/view-items', { products,admin: true, style: 'all.css'})
   }) 
 })
 router.get('/edit-items/:id',async(req,res)=>{
@@ -105,6 +105,8 @@ router.post('/edit-items/:id',(req,res)=>{
     if(req.files.Image){
       let img=req.files.Image
       img.mv('./public/product-images/'+req.params.id+'.jpg')
+    }else{
+      res.redirect('admin/view-items')
     }
   })
 })
