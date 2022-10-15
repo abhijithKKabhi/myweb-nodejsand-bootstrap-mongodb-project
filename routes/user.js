@@ -2,6 +2,7 @@ var express = require('express');
 //const { response } = require('../app');
 var router = express.Router();
 var dbExport=require('../HELPER/user-helper')
+var dbadmin = require('../HELPER/admin-helper')
 var loginChecker=((req,res,next)=>{
   if(req.session.user){
     req.session.status
@@ -36,8 +37,18 @@ router.get('/user-home',loginChecker,sessionKeep, (req, res) => {
   res.render('user/user-home', { user: true,datas, style: 'style.css' })
 });
 router.get('/show-apps',loginChecker,sessionKeep, (req, res) => {
-  let datas=req.session.user
-  res.render('user/show-apps', { user: true,datas, style: 'app.css' })
+  dbadmin.findAllProducts().then((pro)=>{
+    check=pro.type='image'
+    console.log(check);
+    if(pro.type=='image'){
+      let datas=req.session.user
+  res.render('user/show-apps', { user: true,datas, style: 'app.css',pro })
+
+    }
+ 
+    
+  })
+  
 });
 router.get('/show-clicks',loginChecker,sessionKeep, (req, res) => {
   let datas=req.session.user
