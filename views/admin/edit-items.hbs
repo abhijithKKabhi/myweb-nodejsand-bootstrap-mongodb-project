@@ -1,0 +1,27 @@
+
+<section style="margin-top: 80px;">
+    <div class="container">
+        <h2>Edit-items</h2>
+        <form action="/admin/edit-items/{{data._id}}" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="inputAddress">Name</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Item Name" name="itemName" value="{{data.itemName}}"><br>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Photo Description</label>
+                <textarea  class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    placeholder="Write About the picture" name="description"  >{{data.description}}</textarea><br>
+            </div>
+            
+            <div class="form-group">
+                <label for="image">Image</label>
+                <img style="width: 50px;height: 50px;" src="/product-images/{{data._id}}.jpg" alt="" >
+                <input class="form-control" type="file" name="Image" id="">
+
+
+
+            </div><br>
+            <button type="submit" class=" btn btn-primary" >submit</button>
+        </form>
+    </div>
+</section>

@@ -68,8 +68,8 @@ router.get('/create-account',(req,res)=>{
 });
 router.post('/create-account',(req,res)=>{
   console.log('bodyyy',req.body);
-  if(req.body==null){
-    res.redirect('user/create-account')
+  if(req.body.email==''){
+    res.redirect('create-account')
   }else{
     dbExport.getAllData(req.body).then((response)=>{
     

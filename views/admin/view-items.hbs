@@ -1,0 +1,33 @@
+<div class="container">
+<section style="margin-top: 80px;">
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">No</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">catogery</th>
+      <th scope="col">Image</th>
+      <th scope="col">Edit/Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+    <tr>
+      <th scope="row">1</th>
+      <td>{{this.itemName}}</td>
+      <td>{{this.description}}</td>
+      <td>{{this.type}}</td>
+      <td><img style="height: 50px; width: 50px;" src="/product-images/{{this._id}}.jpg" alt=""></td>
+      <td>
+      <a href="/admin/edit-items/{{this._id}}" class="btn btn-primary">Edit</a>
+      <a href="/admin/delete-items/{{this._id}}" class="btn btn-danger">Delete</a>
+      </td>
+    </tr>
+    {{/each}}
+    
+  </tbody>
+</table>
+</section>
+</div>

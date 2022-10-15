@@ -1,0 +1,34 @@
+<section style="margin-top: 80px;">
+    <div class="container">
+        <h2>Add-items</h2>
+        <form action="/admin/add-items" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="inputAddress">Name</label>
+                <input type="text" class="form-control" id="inputAddress" placeholder="Item Name" name="itemName"><br>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Photo Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    placeholder="Write About the picture" name="description"></textarea><br>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect2">item type</label>
+                <select class="form-control custom-select" id="exampleFormControlSelect2" name="type" required>
+                    <option value=" ">selectone...</option>
+                    <option value="image">image</option>
+                    <option value="app">app</option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="image">Image</label>
+                <input class="form-control custom-file-input" type="file" name="Image" id="">
+
+
+
+            </div><br>
+            <button type="submit" class=" btn btn-primary" value="submit">submit</button>
+        </form>
+    </div>
+</section>
