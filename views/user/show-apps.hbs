@@ -1,11 +1,12 @@
 <div style="margin-top: 80px;">
     <div class="container">
         <div class="row">
-             {{#each pro}}
+            
+             {{#each proApp}}
           
             <div class="col-md-auto col-lg-auto ms-4 mt-5">
                 <div class="card" style="width: 15rem;height:18rem;">
-                    <img src="..." class="card-img-top d-flex justify-content-center" alt="...">
+                    <img src="/product-images/{{this._id}}.jpg" class=" mx-auto mt-2 " alt="..." style="height: 12rem;width: 8rem;  " >
                     <div class="card-body">
                         <h5 class="card-title d-flex justify-content-center">{{this.itemName}}</h5>
                         <p class="card-text d-flex justify-content-center">{{this.description}}</p>
@@ -15,6 +16,7 @@
             </div>
          
             {{/each}}
+           
         </div>
     </div>
 </div>

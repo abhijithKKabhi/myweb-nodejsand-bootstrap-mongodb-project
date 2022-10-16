@@ -38,21 +38,29 @@ router.get('/user-home',loginChecker,sessionKeep, (req, res) => {
 });
 router.get('/show-apps',loginChecker,sessionKeep, (req, res) => {
   dbadmin.findAllProducts().then((pro)=>{
-    check=pro.type='image'
-    console.log(check);
-    if(pro.type=='image'){
-      let datas=req.session.user
-  res.render('user/show-apps', { user: true,datas, style: 'app.css',pro })
-
-    }
- 
+    const proApp=pro.filter((value,index,arr)=> value.type==='app')
+    console.log(proApp);
+   
+        let datas=req.session.user
+         res.render('user/show-apps', { user: true,datas, style: 'app.css',proApp })
     
+      
   })
   
 });
 router.get('/show-clicks',loginChecker,sessionKeep, (req, res) => {
-  let datas=req.session.user
-  res.render('user/show-clicks', { user: true,datas, style: 'all.css' })
+  dbadmin.findAllProducts().then((data)=>{
+    let proClick=data.filter((value,index,arr)=>{
+     return value.type==='image'
+      
+    })
+      console.log(proClick);
+      let datas=req.session.user
+  res.render('user/show-clicks', { user: true,datas, style: 'all.css',proClick })
+
+    
+  })
+  
 });
 
 
