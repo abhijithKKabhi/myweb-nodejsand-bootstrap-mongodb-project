@@ -1,4 +1,5 @@
 module.exports={
     ADMIN:'admin',
-    USER:'USER'
+    USER:'USER',
+    ADMINLOGIN:'userNameAndPassword'
 }

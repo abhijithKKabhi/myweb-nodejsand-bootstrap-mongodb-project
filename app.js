@@ -32,10 +32,12 @@ app.use(session({
   secret: 'thisismysecret',
   resave: false,
   saveUninitialized: false,
+  Cookie:{maxAge: 6000},
   store: MongoStore.create({
     mongoUrl: 'mongodb://0.0.0.0:27017/',
-    touchAfter: 600000
+    touchAfter: 600
   })
+  
 }));
 
 

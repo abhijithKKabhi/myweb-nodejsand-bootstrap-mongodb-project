@@ -56,7 +56,7 @@ router.get('/show-clicks',loginChecker,sessionKeep, (req, res) => {
     })
       console.log(proClick);
       let datas=req.session.user
-  res.render('user/show-clicks', { user: true,datas, style: 'all.css',proClick })
+  res.render('user/show-clicks', { user: true,datas, style: 'app.css',proClick })
 
     
   })
