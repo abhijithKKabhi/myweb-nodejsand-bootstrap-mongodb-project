@@ -4,6 +4,7 @@ var express = require('express');
 var router = express.Router();
 var dbExport = require('../HELPER/admin-helper')
 
+//admin login check
 let doAdminLoggin=(req,res,next)=>{
   if(req.session.admin){
     req.session.doAdminLoggin=true
@@ -13,7 +14,7 @@ let doAdminLoggin=(req,res,next)=>{
   }
 }
 
-/* GET users listing. */
+/* GET admin login page and default username and password */
 router.get('/', function (req, res, next) {
   let css = {
     style: ('stylesheets/style')
@@ -28,16 +29,19 @@ router.get('/', function (req, res, next) {
   req.session.logout=false
 });
 
+//edit session page
 router.get('/edit-items',doAdminLoggin, (req, res) => {
   let logIn=req.session.admin
   res.render('admin/edit-items', { admin: true, style: 'all.css' ,logIn})
 })
 
+//product add page
 router.get('/add-items',doAdminLoggin, (req, res) => {
   let logIn=req.session.admin
   res.render('admin/add-items', { admin: true, style: 'all.css',logIn})
 })
 
+//product post to db
 router.post('/add-items',doAdminLoggin, (req, res) => {
   dbExport.addProducts(req.body).then((id) => {
     let image = req.files.Image
@@ -51,6 +55,7 @@ router.post('/add-items',doAdminLoggin, (req, res) => {
   })
 })
 
+//admin home page
 router.get('/view-items',doAdminLoggin, (req, res) => {
   dbExport.findAllProducts().then((products) => {
     let logIn=req.session.admin
@@ -58,6 +63,7 @@ router.get('/view-items',doAdminLoggin, (req, res) => {
   })
 })
 
+//edit items page use with db id
 router.get('/edit-items/:id',doAdminLoggin, async (req, res) => {
   await dbExport.findProduct(req.params.id).then((data) => {
     let logIn=req.session.admin
@@ -65,6 +71,7 @@ router.get('/edit-items/:id',doAdminLoggin, async (req, res) => {
   })
 })
 
+//update redit items
 router.post('/edit-items/:id',doAdminLoggin, (req, res) => {
   dbExport.updateProducts(req.params.id, req.body).then((response) => {
     res.redirect('/admin/view-items')
@@ -77,6 +84,7 @@ router.post('/edit-items/:id',doAdminLoggin, (req, res) => {
   })
 })
 
+//delet added  product items
 router.get('/delete-items/:id',doAdminLoggin, (req, res) => {
      console.log(req.params.id);
      dbExport.deletProduct(req.params.id).then((response) => {
@@ -84,7 +92,7 @@ router.get('/delete-items/:id',doAdminLoggin, (req, res) => {
   })
 })
 
-
+//admin login data posting
 router.post('/admin-login', (req, res) => {
   dbExport.adminLoginData(req.body).then((confirmation) => {
     
@@ -100,6 +108,8 @@ router.post('/admin-login', (req, res) => {
     }
   })
 })
+
+//delete session and delet db stored username and password
 router.get('/admin-logout',(req,res)=>{
   req.session.destroy()
   dbExport.deletAdminLogginSession(req.session)

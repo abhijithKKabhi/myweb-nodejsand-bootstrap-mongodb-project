@@ -3,6 +3,8 @@ var express = require('express');
 var router = express.Router();
 var dbExport=require('../HELPER/user-helper')
 var dbadmin = require('../HELPER/admin-helper')
+
+//user login checker
 var loginChecker=((req,res,next)=>{
   if(req.session.user){
     req.session.status
@@ -12,8 +14,9 @@ var loginChecker=((req,res,next)=>{
   }else{
     res.redirect('/')
   }
-
 })
+
+//user logout session check
 let sessionKeep=((req,res,next)=>{
   if(req.session.user){
     next()
@@ -25,21 +28,23 @@ let sessionKeep=((req,res,next)=>{
 
 
 
-/* GET home page. */
+/* GET login page. */
 router.get('/', function (req, res, next) {
   
   
   
   res.render('index', { user: true, });
 });
+//user home page show
 router.get('/user-home',loginChecker,sessionKeep, (req, res) => {
   let datas=req.session.user
   res.render('user/user-home', { user: true,datas, style: 'style.css' })
 });
+//app page show
 router.get('/show-apps',loginChecker,sessionKeep, (req, res) => {
   dbadmin.findAllProducts().then((pro)=>{
     const proApp=pro.filter((value,index,arr)=> value.type==='app')
-    console.log(proApp);
+    
    
         let datas=req.session.user
          res.render('user/show-apps', { user: true,datas, style: 'app.css',proApp })
@@ -48,6 +53,7 @@ router.get('/show-apps',loginChecker,sessionKeep, (req, res) => {
   })
   
 });
+//click page showw
 router.get('/show-clicks',loginChecker,sessionKeep, (req, res) => {
   dbadmin.findAllProducts().then((data)=>{
     let proClick=data.filter((value,index,arr)=>{
@@ -63,7 +69,7 @@ router.get('/show-clicks',loginChecker,sessionKeep, (req, res) => {
   
 });
 
-
+//user loginpage data get and posting
 router.post('/',(req,res)=>{
   dbExport.userLoginData(req.body).then((responsee)=>{
     console.log(req.body);
@@ -81,12 +87,13 @@ router.post('/',(req,res)=>{
   
 
 });
+// create user account
 router.get('/create-account',(req,res)=>{
   res.render('user/create-account')
   
 });
 router.post('/create-account',(req,res)=>{
-  console.log('bodyyy',req.body);
+  
   if(req.body.email==''){
     res.redirect('create-account')
   }else{
@@ -95,11 +102,11 @@ router.post('/create-account',(req,res)=>{
       res.redirect('/')
   
     })
-  
+  } 
+})
 
-  }
-  
-  //console.log(req.body);
-  
+router.get('/otp-verify',(req,res)=>{
+  console.log('hiiiiiiiiiiiiiiiiiiiiiiiii');
+  res.render('reset-Password/otp-verify')
 })
 module.exports = router;
