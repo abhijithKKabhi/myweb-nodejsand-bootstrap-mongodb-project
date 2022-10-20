@@ -22,15 +22,18 @@
                     {{#if loginError}}
                     <h2>{{loginError}}</h2>
                     {{/if}}
+                    {{#if s}}
+                    <h2>{{s}}</h2>
+                    {{/if}}
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="form2Example1" class="form-control" name="email"/>
+                            <input type="email" id="form2Example1" class="form-control" name="email" value="example@gmail.com"/>
                             <label class="form-label" for="form2Example1">Email address</label>
                         </div>
 
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" id="form2Example2" class="form-control" name="password" />
+                            <input type="password" id="form2Example2" class="form-control" name="password" value="password"/>
                             <label class="form-label" for="form2Example2">Password</label>
                         </div>
 

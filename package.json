@@ -15,6 +15,7 @@
     "fileupload": "^0.2.1",
     "hbs": "^4.2.0",
     "http-errors": "~1.6.3",
+    "joi": "^17.6.3",
     "joy": "^0.1.1",
     "mongo-connect": "^0.0.6",
     "mongodb": "^4.10.0",
